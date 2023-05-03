@@ -30,4 +30,3 @@ sudo sed -i '/listen 80 default_server;/a\\tlocation /hbnb_static {\n\t\talias /
 
 # Restart Nginx to apply changes
 sudo service nginx restart
-
