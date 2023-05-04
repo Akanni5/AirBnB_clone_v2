@@ -18,7 +18,7 @@ def do_pack():
             date.day, date.hour,
             date.minute, date.second)
 
-    if local("tar -c -v -f {} web_static/".format(tar_file)).failed is True:
+    if local("tar -c -v -z -f {} web_static/".format(tar_file)).failed is True:
         return None
     else:
         return tar_file
