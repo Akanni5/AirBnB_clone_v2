@@ -1,24 +1,24 @@
 #!/usr/bin/python3
+'''contains a function to create tape archive (tar).
 '''
-contains a function to create tape archive (tar)
-'''
+
 from datetime import datetime
-import fabric.api as fapi
+from fabric.api import local
 
 
 def do_pack():
     '''creates a tar file of the web_static folder'''
 
-    if fapi.local("mkdir -p versions/").failed is True:
+    if local("mkdir -p versions/").failed is True:
         return None
 
     date = datetime.utcnow()
-    tar_file = "versions/web_static_{}{}{}{}{}.tgz".format(
-            date.year, date.month, date.day,
-            date.hour, date.minute, date.second
-            )
+    tar_file = "versions/web_static_{}{}{}{}{}{}.tgz".format(
+            date.year, date.month,
+            date.day, date.hour,
+            date.minute, date.second)
 
-    if fapi.local(f"tar -c -v -f {tar_file} web_static/").failed is True:
+    if local("tar -c -v -f {} web_static/".format(tar_file)).failed is True:
         return None
     else:
         return tar_file
