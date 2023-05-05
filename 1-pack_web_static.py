@@ -13,10 +13,8 @@ def do_pack():
         return None
 
     date = datetime.utcnow()
-    tar_file = "versions/web_static_{}{}{}{}{}{}.tgz".format(
-            date.year, date.month,
-            date.day, date.hour,
-            date.minute, date.second)
+    str_date = date.strftime("%Y%m%d%H%M%S")
+    tar_file = "versions/web_static_{}.tgz".format(str_date)
 
     if local("tar -c -v -z -f {} web_static/".format(tar_file)).failed is True:
         return None
