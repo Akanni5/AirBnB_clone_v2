@@ -17,6 +17,7 @@ def hbnb_route():
     """ handle hbnb route """
     return "HBNB"
 
+
 @app.route('/c/<text>', strict_slashes=False)
 def c_route(text):
     """ displays C follow by the value of @text """
