@@ -63,3 +63,7 @@ class FileStorage:
         else:
             key = obj.to_dict()['__class__'] + '.' + obj.id
             del self.__objects[key]
+
+    def close(self):
+        """close the file storage"""
+        self.reload()
