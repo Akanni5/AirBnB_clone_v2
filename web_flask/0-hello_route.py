@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """script that creates a flask app and says 'Hello HBNB' """
 
 from flask import Flask
