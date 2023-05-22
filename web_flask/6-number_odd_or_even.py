@@ -49,7 +49,8 @@ def number_template_route(num):
 def template_route(num):
     """ displays if is number odd or even """
     value = "even" if num % 2 == 0 else "odd"
-    return render_template("6-number_odd_or_even.html", number=num, value=value)
+    return render_template("6-number_odd_or_even.html", number=num,
+                           value=value)
 
 
 if __name__ == '__main__':
