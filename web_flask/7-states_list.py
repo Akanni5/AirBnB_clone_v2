@@ -14,12 +14,13 @@ def teardown():
     storage.close()
 
 
-@app.route('/state_list', strict_slashes=False)
+@app.route('/states_list', strict_slashes=False)
 def state_list():
     """display a HTML page with the list of states
     present in the DB.
     """
     states = storage.all(State).values()
+    states = sorted(states, key= lambda key : key.name)
     return render_template("7-states_list.html", states=states)
 
 
