@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 @app.teardown_appcontext
-def teardown():
+def teardown(err):
     """closes the storage when app context ends"""
     storage.close()
 
@@ -20,7 +20,7 @@ def state_list():
     present in the DB.
     """
     states = storage.all(State).values()
-    states = sorted(states, key= lambda key : key.name)
+    states = sorted(states, key=lambda key: key.name)
     return render_template("7-states_list.html", states=states)
 
 
