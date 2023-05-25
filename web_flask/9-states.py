@@ -28,6 +28,7 @@ def states(id=""):
     '''
     0 for get all states
     1 for id present
+    2 for not found
     '''
 
     found_id = 0
@@ -43,6 +44,8 @@ def states(id=""):
                     array = state.cities()
                 state = state
                 break
+    if found_id == 0:
+        found_id = 2
 
     array = sorted(array, key=lambda key: key.name)
     return render_template("9-states.html",
